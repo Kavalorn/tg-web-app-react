@@ -53,8 +53,8 @@ export const Form = () => {
   return (
     <div>
         <h3>Введите ваши данные</h3>
-        <input className={styles.input} type="text" placeholder={"Страна"} value={country} />
-        <input className={styles.input} type="text" placeholder={"Улица"} value={street} />
+        <input onChange={onChangeCountry} className={styles.input} type="text" placeholder={"Страна"} value={country} />
+        <input onChange={onChangestreet} className={styles.input} type="text" placeholder={"Улица"} value={street} />
         <select value={subject} onChange={onChangeSubject} className={styles.select}>
             <option value="physical">Юр лицо</option>
             <option value="legal">Физ лицо</option>
