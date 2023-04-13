@@ -37,7 +37,8 @@ export const ProductList = () => {
     } else {
       tg.MainButton.show();
       tg.MainButton.setParams({
-        text: `Купить ${items.reduce((acc, item) => acc += item.price, 0)}`
+        // text: `Купить ${items.reduce((acc, item) => acc += item.price, 0)}`
+        text: 'wetwetwet'
       })
     }
   }
