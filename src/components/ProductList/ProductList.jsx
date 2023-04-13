@@ -4,16 +4,16 @@ import {ProductItem} from '../ProductItem/ProductItem'
 import {useTelegram} from '../../hooks/useTelegram'
 
 const products = [
-  {id: '1', title: 'Куртка 1', price: 12000, description: 'Зеленого цвета'},
-  {id: '2', title: 'Куртка 2', price: 12000, description: 'Зеленого цвета'},
-  {id: '3', title: 'Куртка 3', price: 12000, description: 'Черного цвета'},
-  {id: '4', title: 'Куртка 4', price: 12000, description: 'Зеленого цвета'},
-  {id: '5', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета'},
-  {id: '6', title: 'Куртка 6', price: 12000, description: 'Зеленого цвета'},
-  {id: '7', title: 'Куртка 7', price: 12000, description: 'Зеленого цвета'},
-  {id: '8', title: 'Куртка 8', price: 12000, description: 'Зеленого цвета'},
-  {id: '9', title: 'Куртка 9', price: 12000, description: 'Зеленого цвета'},
-  {id: '10', title: 'Куртка 10', price: 12000, description: 'Зеленого цвета'},
+  {id: '1', title: 'Куртка 1', price: 5235, description: 'Зеленого цвета'},
+  {id: '2', title: 'Куртка 2', price: 4, description: 'Зеленого цвета'},
+  {id: '3', title: 'Куртка 3', price: 64, description: 'Черного цвета'},
+  {id: '4', title: 'Куртка 4', price: 34, description: 'Зеленого цвета'},
+  {id: '5', title: 'Куртка 5', price: 6463, description: 'Зеленого цвета'},
+  {id: '6', title: 'Куртка 6', price: 44, description: 'Зеленого цвета'},
+  {id: '7', title: 'Куртка 7', price: 374, description: 'Зеленого цвета'},
+  {id: '8', title: 'Куртка 8', price: 45345, description: 'Зеленого цвета'},
+  {id: '9', title: 'Куртка 9', price: 3747, description: 'Зеленого цвета'},
+  {id: '10', title: 'Куртка 10', price: 3734838, description: 'Зеленого цвета'},
 ]
 
 const getTotalPrice = (items = []) => {
@@ -23,7 +23,7 @@ const getTotalPrice = (items = []) => {
 }
 
 export const ProductList = () => {
-  const [addedItems, setAddedItems] = useState(products);
+  const [addedItems, setAddedItems] = useState([]);
   const {tg} = useTelegram();
 
   const onAdd = (product) => {
@@ -52,6 +52,7 @@ export const ProductList = () => {
     <div className={styles.list}>
       {products.map(item => (
         <ProductItem
+          key={item.id}
           product={item}
           onAdd={onAdd}
           className={styles.item}
