@@ -38,7 +38,7 @@ export const ProductList = () => {
 
     setAddedItems(newItems)
 
-    if(addedItems.length === 0) {
+    if(newItems.length === 0) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
