@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './ProductList.module.sass'
 import {ProductItem} from '../ProductItem/ProductItem'
+import {useTelegram} from '../../hooks/useTelegram'
 
 const products = [
   {id: '1', title: 'Куртка 1', price: 12000, description: 'Зеленого цвета'},
