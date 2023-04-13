@@ -7,6 +7,7 @@ export const Form = () => {
     const [street, setStreet] = useState('')
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram();
+    const [huynia, setHuynya] = useState(null);
 
     // const onSendData = useCallback(() => {
     //     const data = {
@@ -23,7 +24,7 @@ export const Form = () => {
             street,
             subject,
         }
-
+        setHuynya(true)
         tg.sendData(JSON.stringify(data));
     }
 
