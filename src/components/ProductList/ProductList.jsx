@@ -16,6 +16,12 @@ const products = [
   {id: '10', title: 'Куртка 10', price: 12000, description: 'Зеленого цвета'},
 ]
 
+const getTotalPrice = (items = []) => {
+  return items.reduce((acc, item) => {
+    return acc += item.price;
+  })
+}
+
 export const ProductList = () => {
   const [addedItems, setAddedItems] = useState(products);
   const {tg} = useTelegram();
@@ -37,8 +43,7 @@ export const ProductList = () => {
     } else {
       tg.MainButton.show();
       tg.MainButton.setParams({
-        text: `Купить ${items.reduce((acc, item) => {return acc += item.price}, 0)}`
-        // text: 'wetwetwet'
+        text: `Купить ${getTotalPrice(items)}`
       })
     }
   }
