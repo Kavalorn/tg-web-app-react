@@ -8,14 +8,24 @@ export const Form = () => {
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram();
 
-    const onSendData = useCallback(() => {
+    // const onSendData = useCallback(() => {
+    //     const data = {
+    //         country,
+    //         street,
+    //         subject,
+    //     }
+    //     tg.sendData(JSON.stringify(data));
+    // }, [country, street, subject])
+
+    const onSendData = () => {
         const data = {
             country,
             street,
             subject,
         }
+
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    }
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData);
@@ -53,9 +63,10 @@ export const Form = () => {
   return (
     <div>
         <h3>Введите ваши данные</h3>
+        {huynia ? <div>huynuia</div> : null}
         <input onChange={onChangeCountry} className={styles.input} type="text" placeholder={"Страна"} value={country} />
         <input onChange={onChangeStreet} className={styles.input} type="text" placeholder={"Улица"} value={street} />
-        <select value={subject} onChange={onChangeSubject} className={styles.select}>
+        <select onChange={onChangeSubject} value={subject} className={styles.select}>
             <option value="physical">Юр лицо</option>
             <option value="legal">Физ лицо</option>
         </select>
