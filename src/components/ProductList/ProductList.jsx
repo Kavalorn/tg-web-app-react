@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback, useEffect} from 'react'
 import styles from './ProductList.module.sass'
 import {ProductItem} from '../ProductItem/ProductItem'
 import {useTelegram} from '../../hooks/useTelegram'

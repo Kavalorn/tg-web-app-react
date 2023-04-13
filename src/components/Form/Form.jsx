@@ -53,7 +53,6 @@ export const Form = () => {
   return (
     <div>
         <h3>Введите ваши данные</h3>
-        {huynia ? <div>huynuia</div> : null}
         <input onChange={onChangeCountry} className={styles.input} type="text" placeholder={"Страна"} value={country} />
         <input onChange={onChangeStreet} className={styles.input} type="text" placeholder={"Улица"} value={street} />
         <select onChange={onChangeSubject} value={subject} className={styles.select}>
