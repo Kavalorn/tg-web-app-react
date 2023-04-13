@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styles from './Form.module.sass'
 import {useTelegram} from '../../hooks/useTelegram'
-import { useEffect } from 'react'
 
 export const Form = () => {
     const [country, setCountry] = useState('')
-    const [city, setCity] = useState('')
+    const [street, setstreet] = useState('')
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
             country,
-            city,
+            street,
             subject,
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, city, subject])
+    }, [country, street, subject])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData);
@@ -26,16 +25,16 @@ export const Form = () => {
     }, [onSendData])
 
     useEffect(() => {
-        th.MainButton.setParams({
+        tg.MainButton.setParams({
             text: 'Отправить данные'
         })
     })
 
     useEffect(() => {
         if(!street || !country) {
-            th.MainButton.hide()
+            tg.MainButton.hide()
         } else {
-            th.MainButton.show()
+            tg.MainButton.show()
         }
     }, [country, street])
 
@@ -43,7 +42,7 @@ export const Form = () => {
         setCountry(e.target.value)
     }
 
-    const onChangeCity = (e) => {
+    const onChangestreet = (e) => {
         setCountry(e.target.value)
     }
 
