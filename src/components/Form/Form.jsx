@@ -9,6 +9,22 @@ export const Form = () => {
     const [subject, setSubject] = useState('physical')
     const {tg} = useTelegram();
 
+    const onSendData = useCallback(() => {
+        const data = {
+            country,
+            city,
+            subject,
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [country, city, subject])
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData);
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData);
+        }
+    }, [onSendData])
+
     useEffect(() => {
         th.MainButton.setParams({
             text: 'Отправить данные'
